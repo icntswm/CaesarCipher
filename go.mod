@@ -1,3 +1,3 @@
-module github.com/icntswm/test_project
+module github.com/icntswm/CaesarCipher
 
 go 1.18

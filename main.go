@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/icntswm/test_project/encr_src"
+	encr "github.com/icntswm/CaesarCipher/encr_src"
 	"os"
 	"strconv"
 	"strings"
@@ -29,10 +29,10 @@ func receivingDataFromUser() ([]rune, int) {
 	}
 	printHint(1)
 	number_str, err := reader.ReadString('\n')
-	number_str = strings.TrimRight(number_str, "\n")
 	if err != nil || number_str[0] == '\n' {
 		os.Exit(1)
 	}
+	number_str = strings.TrimRight(number_str, "\n")
 	number, err := strconv.Atoi(number_str)
 	if err != nil {
 		fmt.Println(err)
@@ -43,5 +43,5 @@ func receivingDataFromUser() ([]rune, int) {
 
 func main() {
 	date, number := receivingDataFromUser()
-	fmt.Println(string(encr_src.CaesarCipher(date, number)))
+	fmt.Println(string(encr.CaesarCipher(date, number)))
 }
